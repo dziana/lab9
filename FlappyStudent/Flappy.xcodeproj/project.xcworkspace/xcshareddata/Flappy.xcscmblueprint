@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "6E199FBDE7F7ADAD1177CF88536B472E8C51DF36",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "74F87D882F192BE3C369626702D5EF9BFBFB008E" : 0,
+    "6E199FBDE7F7ADAD1177CF88536B472E8C51DF36" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "70E91643-5116-4C6E-917F-71E7474BBB86",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "74F87D882F192BE3C369626702D5EF9BFBFB008E" : "",
+    "6E199FBDE7F7ADAD1177CF88536B472E8C51DF36" : "Flappy"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Flappy",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Flappy.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/cherrythia\/Flappy.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6E199FBDE7F7ADAD1177CF88536B472E8C51DF36"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/cherrythia\/XcodeProtocolTutorial.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "74F87D882F192BE3C369626702D5EF9BFBFB008E"
+    }
+  ]
+}
