@@ -38,12 +38,58 @@
 }
 
 -(IBAction)startGame:(id)sender{
+    tunnelBottom.hidden = NO;
+    tunnelTop.hidden = NO;
+    startGame.hidden = YES;
+    scoreLabel.hidden = YES;
+    
+    birdMovement = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(birdMoving) userInfo:nil repeats:YES];
+    
+    [self placeTunnels];
+    
+    tunnelMovement = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(tunnelMoving) userInfo:nil repeats:YES];
+
 }
 
 -(void)tunnelMoving{
+    tunnelTop.center = CGPointMake(tunnelTop.center.x -1, tunnelTop.center.y);
+    tunnelBottom.center = CGPointMake(tunnelBottom.center.x -1 , tunnelBottom.center.y);
+    
+    if (tunnelTop.center.x < -25) {
+        [self placeTunnels];                //tunneltop is gone, tunnelbottom will be replaced as well.
+    }
+    
+    if(tunnelTop.center.x ==  35){          //bird flew throught the gap
+        [self score];
+    }
+    
+    if (CGRectIntersectsRect(bird.frame, tunnelTop.frame)) {
+        [self GameOver];
+    }
+    
+    if (CGRectIntersectsRect(bird.frame, tunnelBottom.frame)){
+        [self GameOver];
+    }
+    
+    if(CGRectIntersectsRect(bird.frame, top.frame)){
+        [self GameOver];
+    }
+    
+    if(CGRectIntersectsRect(bird.frame, bottom.frame)){
+        [self GameOver];
+    }
+
 }
 
--(void)placeTunnels{                                                        
+-(void)placeTunnels{
+    randomTopTunnelPosition = arc4random() % 301; //501
+    randomTopTunnelPosition = randomTopTunnelPosition - 150;
+    randomBottomTunnelPosition = randomTopTunnelPosition + 600; //636
+    
+    // tunnelTop.center = CGPointMake(self.view.frame.size.width + 25, randomTopTunnelPosition);
+    // tunnelBottom.center = CGPointMake(self.view.frame.size.width + 25, randomBottomTunnelPosition);
+    tunnelTop.center = CGPointMake(self.view.frame.size.width , 0);
+    tunnelBottom.center = CGPointMake(self.view.frame.size.width , 800);
 }
 
 -(void)birdMoving {
