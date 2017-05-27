@@ -31,13 +31,15 @@
     
 }
 
--(void)score {
+-(void)score{
+    
     scoreNumber = scoreNumber + 1;
     scoreLabel.text = [NSString stringWithFormat:@"%i", scoreNumber];
     
 }
 
 -(IBAction)startGame:(id)sender{
+    
     tunnelBottom.hidden = NO;
     tunnelTop.hidden = NO;
     startGame.hidden = YES;
@@ -52,6 +54,7 @@
 }
 
 -(void)tunnelMoving{
+    
     tunnelTop.center = CGPointMake(tunnelTop.center.x -1, tunnelTop.center.y);
     tunnelBottom.center = CGPointMake(tunnelBottom.center.x -1 , tunnelBottom.center.y);
     
@@ -78,30 +81,55 @@
     if(CGRectIntersectsRect(bird.frame, bottom.frame)){
         [self GameOver];
     }
-
+    
 }
 
--(void)placeTunnels{
+-(void)placeTunnels{                                                        //listen to video 13.39mins
+    
     randomTopTunnelPosition = arc4random() % 301; //501
     randomTopTunnelPosition = randomTopTunnelPosition - 150;
     randomBottomTunnelPosition = randomTopTunnelPosition + 600; //636
     
-    // tunnelTop.center = CGPointMake(self.view.frame.size.width + 25, randomTopTunnelPosition);
-    // tunnelBottom.center = CGPointMake(self.view.frame.size.width + 25, randomBottomTunnelPosition);
-    tunnelTop.center = CGPointMake(self.view.frame.size.width , 0);
-    tunnelBottom.center = CGPointMake(self.view.frame.size.width , 800);
+    tunnelTop.center = CGPointMake(self.view.frame.size.width + 25, randomTopTunnelPosition);
+    tunnelBottom.center = CGPointMake(self.view.frame.size.width + 25, randomBottomTunnelPosition);
+    
 }
 
--(void)birdMoving {
+-(void)birdMoving{
+    
+    bird.center = CGPointMake(bird.center.x, bird.center.y - birdFlight); //negative to move upwards on the screen?
+    
+    birdFlight = birdFlight - 5;
+    
+    if (birdFlight < -15) {
+        birdFlight = -15;
+    }
+    
+    if (birdFlight > 0) {
+        bird.image = [UIImage imageNamed:@"BirdUp.PNG"];
+    }
+    else if (birdFlight < 0){
+        bird.image = [UIImage imageNamed:@"BirdDown.PNG"];
+    }
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    
     birdFlight = 20; //30
     
 }
 
 
 - (void)viewDidLoad {
+    
+    tunnelTop.hidden = YES;
+    tunnelBottom.hidden = YES;
+    
+    exit.hidden = YES;
+    scoreNumber = 0;
+    
+    highScoreNumber = [[NSUserDefaults standardUserDefaults]integerForKey:@"highScoreSaved"];
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
